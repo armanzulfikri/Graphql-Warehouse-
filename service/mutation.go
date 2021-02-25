@@ -54,6 +54,48 @@ var mutationType = graphql.NewObject(
 				Args:        args.DeleteDistrictsArgs(),
 				Resolve:     resolve.DeleteDistricts,
 			},
+			//========================= User mutation ============================
+			"register": &graphql.Field{
+				Type:        types.UserType(),
+				Description: "Register New User",
+				Args:        args.CreateUserArgs(),
+
+				Resolve: resolve.CreateUser,
+			},
+			"updateuser": &graphql.Field{
+				Type:        types.UserType(),
+				Description: "Update User",
+				Args:        args.UpdateUserArgs(),
+
+				Resolve: resolve.UpdateUserArgs,
+			},
+			"deleteuser": &graphql.Field{
+				Type:        types.UserType(),
+				Description: "Delete User",
+				Args:        args.DeleteUserArgs(),
+				Resolve:     resolve.DeleteUserArgs,
+			},
+			//========================= supplier mutation ============================
+			"createsupplier": &graphql.Field{
+				Type:        types.SupplierType(),
+				Description: "Register New Supplier",
+				Args:        args.CreateSupplierArgs(),
+
+				Resolve: resolve.CreateSuppliers,
+			},
+			"updatesupplier": &graphql.Field{
+				Type:        types.SupplierType(),
+				Description: "Update Supplier",
+				Args:        args.UpdateSUpplierArgs(),
+
+				Resolve: resolve.UpdateSupplier,
+			},
+			"deletesupplier": &graphql.Field{
+				Type:        types.SupplierType(),
+				Description: "Delete Supplier",
+				Args:        args.DeleteSupplierArgs(),
+				Resolve:     resolve.DeleteSupplier,
+			},
 		},
 	},
 )

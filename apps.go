@@ -21,6 +21,8 @@ func main() {
 	//seeding data
 	seeders.SeedProvince(pgDB)
 	seeders.SeedDisctrict(pgDB)
+	seeders.SeedUser(pgDB)
+	seeders.SeedSupplier(pgDB)
 
 	r := gin.Default()
 	r.POST("/", func(c *gin.Context) {

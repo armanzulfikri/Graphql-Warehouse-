@@ -75,3 +75,26 @@ func UserType() *graphql.Object {
 		},
 	)
 }
+
+//SupplierType func
+func SupplierType() *graphql.Object {
+	return graphql.NewObject(
+		graphql.ObjectConfig{
+			Name: "Suppliers",
+			Fields: graphql.Fields{
+				"id": &graphql.Field{
+					Type: graphql.Int,
+				},
+				"supplier_name": &graphql.Field{
+					Type: graphql.String,
+				},
+				"address": &graphql.Field{
+					Type: graphql.String,
+				},
+				"telepon": &graphql.Field{
+					Type: graphql.String,
+				},
+			},
+		},
+	)
+}

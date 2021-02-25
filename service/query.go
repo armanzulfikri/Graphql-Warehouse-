@@ -28,6 +28,16 @@ var queryType = graphql.NewObject(
 				Description: "Get province and district list",
 				Resolve:     resolve.GetProvinceDistrict,
 			},
+			"get_user": &graphql.Field{
+				Type:        graphql.NewList(types.UserType()),
+				Description: "Get User List",
+				Resolve:     resolve.GetUser,
+			},
+			"get_supllier": &graphql.Field{
+				Type:        graphql.NewList(types.SupplierType()),
+				Description: "Get Supplier List",
+				Resolve:     resolve.GetSupplier,
+			},
 		},
 	},
 )
