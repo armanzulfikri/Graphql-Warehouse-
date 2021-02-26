@@ -9,12 +9,17 @@ import (
 // Migrations func
 func Migrations(db *gorm.DB) {
 	var checkTableProvinces, checkTableDistricts, checkTableUserss,
-		checkTabelSuppliers bool
+		checkTabelSuppliers, checkTableCategory, checkTableRack,
+		checkTableProducts, checkTableWarehouse bool
 
 	db.Migrator().DropTable(&Provinces{})
 	db.Migrator().DropTable(&Districts{})
 	db.Migrator().DropTable(&User{})
 	db.Migrator().DropTable(&Suppliers{})
+	db.Migrator().DropTable(&Categories{})
+	db.Migrator().DropTable(&Racks{})
+	db.Migrator().DropTable(&Products{})
+	db.Migrator().DropTable(&Warehouses{})
 
 	checkTableProvinces = db.Migrator().HasTable(&Provinces{})
 	if !checkTableProvinces {
@@ -38,6 +43,30 @@ func Migrations(db *gorm.DB) {
 	if !checkTabelSuppliers {
 		db.Migrator().CreateTable(&Suppliers{})
 		fmt.Println("Create Table Suppliers")
+	}
+
+	checkTableCategory = db.Migrator().HasTable(&Categories{})
+	if !checkTableCategory {
+		db.Migrator().CreateTable(&Categories{})
+		fmt.Println("Create Table Category")
+	}
+
+	checkTableRack = db.Migrator().HasTable(&Racks{})
+	if !checkTableRack {
+		db.Migrator().CreateTable(&Racks{})
+		fmt.Println("Create Table Racks")
+	}
+
+	checkTableProducts = db.Migrator().HasTable(&Products{})
+	if !checkTableProducts {
+		db.Migrator().CreateTable(&Products{})
+		fmt.Println("Create Table Product")
+	}
+
+	checkTableWarehouse = db.Migrator().HasTable(&Warehouses{})
+	if !checkTableWarehouse {
+		db.Migrator().CreateTable(&Warehouses{})
+		fmt.Println("Create Table Warehouse")
 	}
 
 }

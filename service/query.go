@@ -38,6 +38,26 @@ var queryType = graphql.NewObject(
 				Description: "Get Supplier List",
 				Resolve:     resolve.GetSupplier,
 			},
+			"get_category": &graphql.Field{
+				Type:        graphql.NewList(types.CategoriesType()),
+				Description: "Get Category List",
+				Resolve:     resolve.GetCategory,
+			},
+			"get_rack": &graphql.Field{
+				Type:        graphql.NewList(types.RacksType()),
+				Description: "Get Rack List",
+				Resolve:     resolve.GetRack,
+			},
+			"get_product": &graphql.Field{
+				Type:        graphql.NewList(types.ProductType()),
+				Description: "Get Product List",
+				Resolve:     resolve.GetProduct,
+			},
+			"get_warehouse": &graphql.Field{
+				Type:        graphql.NewList(types.WarehouseType()),
+				Description: "Get Warehouse List",
+				Resolve:     resolve.GetWarehouse,
+			},
 		},
 	},
 )

@@ -23,6 +23,10 @@ func main() {
 	seeders.SeedDisctrict(pgDB)
 	seeders.SeedUser(pgDB)
 	seeders.SeedSupplier(pgDB)
+	seeders.SeedCategory(pgDB)
+	seeders.SeedRack(pgDB)
+	seeders.SeedProduct(pgDB)
+	seeders.SeedWareHouse(pgDB)
 
 	r := gin.Default()
 	r.POST("/", func(c *gin.Context) {

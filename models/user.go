@@ -1,17 +1,22 @@
 package models
 
 import (
+	"time"
+
 	"gorm.io/gorm"
 )
 
-//User model
+//Users Entity
 type User struct {
-	gorm.Model
-	FullName   string `json:"full_name"`
-	Gender     string `json:"gender"`
-	BirthDate  string `json:"birth_date"`
-	BirthPlace string `json:"birth_place"`
-	Role       string `json:"role"`
-	Email      string `json:"email"`
-	Password   string `json:"password"`
+	ID         uint `gorm:"primarykey"`
+	CreatedAt  time.Time
+	UpdatedAt  time.Time
+	DeletedAt  gorm.DeletedAt `gorm:"index"`
+	FullName   string         `json:"full_name"`
+	Gender     string         `json:"gender"`
+	BirthDate  string         `json:"birth_date"`
+	BirthPlace string         `json:"birth_place"`
+	Role       string         `json:"role"`
+	Email      string         `json:"email"`
+	Password   string         `json:"password"`
 }

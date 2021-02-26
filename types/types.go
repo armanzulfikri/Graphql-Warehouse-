@@ -98,3 +98,107 @@ func SupplierType() *graphql.Object {
 		},
 	)
 }
+
+//CategoriesType func
+func CategoriesType() *graphql.Object {
+	return graphql.NewObject(
+		graphql.ObjectConfig{
+			Name: "Categories",
+			Fields: graphql.Fields{
+				"id": &graphql.Field{
+					Type: graphql.Int,
+				},
+				"category_name": &graphql.Field{
+					Type: graphql.String,
+				},
+			},
+		},
+	)
+}
+
+//RacksType func
+func RacksType() *graphql.Object {
+	return graphql.NewObject(
+		graphql.ObjectConfig{
+			Name: "Raks",
+			Fields: graphql.Fields{
+				"id": &graphql.Field{
+					Type: graphql.Int,
+				},
+				"warehouse_id": &graphql.Field{
+					Type: graphql.Int,
+				},
+				"category_id": &graphql.Field{
+					Type: graphql.Int,
+				},
+				"rack_code": &graphql.Field{
+					Type: graphql.String,
+				},
+				"rack_capacity": &graphql.Field{
+					Type: graphql.Int,
+				},
+			},
+		},
+	)
+}
+
+//ProductType func
+func ProductType() *graphql.Object {
+	return graphql.NewObject(
+		graphql.ObjectConfig{
+			Name: "Products",
+			Fields: graphql.Fields{
+				"id": &graphql.Field{
+					Type: graphql.Int,
+				},
+				"user_id": &graphql.Field{
+					Type: graphql.Int,
+				},
+				"category_id": &graphql.Field{
+					Type: graphql.Int,
+				},
+				"supplier_id": &graphql.Field{
+					Type: graphql.Int,
+				},
+				"product_name": &graphql.Field{
+					Type: graphql.String,
+				},
+				"product_image_url": &graphql.Field{
+					Type: graphql.String,
+				},
+				"description": &graphql.Field{
+					Type: graphql.String,
+				},
+			},
+		},
+	)
+}
+
+//WarehouseType func
+func WarehouseType() *graphql.Object {
+	return graphql.NewObject(
+		graphql.ObjectConfig{
+			Name: "Warehouses",
+			Fields: graphql.Fields{
+				"id": &graphql.Field{
+					Type: graphql.Int,
+				},
+				"district_id": &graphql.Field{
+					Type: graphql.Int,
+				},
+				"warehouse_name": &graphql.Field{
+					Type: graphql.String,
+				},
+				"warehouse_capacity": &graphql.Field{
+					Type: graphql.Int,
+				},
+				"warehouse_type": &graphql.Field{
+					Type: graphql.String,
+				},
+				"warehouse_location": &graphql.Field{
+					Type: graphql.String,
+				},
+			},
+		},
+	)
+}
