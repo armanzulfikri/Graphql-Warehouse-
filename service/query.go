@@ -58,6 +58,11 @@ var queryType = graphql.NewObject(
 				Description: "Get Warehouse List",
 				Resolve:     resolve.GetWarehouse,
 			},
+			"get_transaction": &graphql.Field{
+				Type:        graphql.NewList(types.TransactionsType()),
+				Description: "Get Transaction List",
+				Resolve:     resolve.GetTransaction,
+			},
 		},
 	},
 )

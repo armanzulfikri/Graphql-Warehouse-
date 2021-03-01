@@ -179,6 +179,25 @@ var mutationType = graphql.NewObject(
 				Args:        args.DeleteWarehouseArgs(),
 				Resolve:     resolve.DeleteWarehouse,
 			},
+			//========================= transactions mutation ============================
+			"createtransaction": &graphql.Field{
+				Type:        types.TransactionsType(),
+				Description: "Create New Transaction",
+				Args:        args.CreateTransactionArgs(),
+				Resolve:     resolve.CreateTransaction,
+			},
+			"updatetransaction": &graphql.Field{
+				Type:        types.TransactionsType(),
+				Description: "Update Transaction",
+				Args:        args.UpdateTransactionArgs(),
+				Resolve:     resolve.UpdateTransaction,
+			},
+			"deletetransaction": &graphql.Field{
+				Type:        types.TransactionsType(),
+				Description: "Delete Transactions",
+				Args:        args.DeleteTransactionArgs(),
+				Resolve:     resolve.DeleteTransaction,
+			},
 		},
 	},
 )

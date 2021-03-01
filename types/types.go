@@ -219,3 +219,29 @@ func Login() *graphql.Object {
 		},
 	)
 }
+
+//TransactionsType func
+func TransactionsType() *graphql.Object {
+	return graphql.NewObject(
+		graphql.ObjectConfig{
+			Name: "Transaction",
+			Fields: graphql.Fields{
+				"id": &graphql.Field{
+					Type: graphql.Int,
+				},
+				"product_id": &graphql.Field{
+					Type: graphql.Int,
+				},
+				"user_id": &graphql.Field{
+					Type: graphql.Int,
+				},
+				"rack_id": &graphql.Field{
+					Type: graphql.Int,
+				},
+				"product_stock": &graphql.Field{
+					Type: graphql.Int,
+				},
+			},
+		},
+	)
+}
