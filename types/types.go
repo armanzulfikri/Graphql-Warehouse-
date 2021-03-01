@@ -202,3 +202,20 @@ func WarehouseType() *graphql.Object {
 		},
 	)
 }
+
+//Login func
+func Login() *graphql.Object {
+	return graphql.NewObject(
+		graphql.ObjectConfig{
+			Name: "Login",
+			Fields: graphql.Fields{
+				"email": &graphql.Field{
+					Type: graphql.String,
+				},
+				"token": &graphql.Field{
+					Type: graphql.String,
+				},
+			},
+		},
+	)
+}

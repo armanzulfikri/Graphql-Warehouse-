@@ -55,6 +55,12 @@ var mutationType = graphql.NewObject(
 				Resolve:     resolve.DeleteDistricts,
 			},
 			//========================= User mutation ============================
+			"login": &graphql.Field{
+				Type:        types.Login(),
+				Description: "Login User",
+				Args:        args.LoginUserArgs(),
+				Resolve:     resolve.LoginUser,
+			},
 			"register": &graphql.Field{
 				Type:        types.UserType(),
 				Description: "Register New User",

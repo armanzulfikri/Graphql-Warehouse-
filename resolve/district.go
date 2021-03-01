@@ -4,6 +4,7 @@ import (
 	"math/rand"
 	"time"
 	"warehouse/config"
+	"warehouse/middlewares"
 	"warehouse/models"
 
 	"github.com/graphql-go/graphql"
@@ -12,6 +13,7 @@ import (
 //GetDistrict func
 func GetDistrict(params graphql.ResolveParams) (interface{}, error) {
 	dbPG := config.Connect()
+
 	type Districts struct {
 		Name       string `json:"name"`
 		ID         uint   `gorm:"primarykey" json:"id"`
@@ -28,6 +30,16 @@ func CreateDistrict(params graphql.ResolveParams) (interface{}, error) {
 	db := config.Connect()
 	rand.Seed(time.Now().UnixNano())
 	var districts models.Districts
+
+	verifToken, err := middlewares.VerifyToken(middlewares.Token)
+
+	if err != nil {
+		return nil, err
+	}
+	if verifToken["role"] != "admin" && verifToken["role"] != "entry" {
+
+		return nil, err
+	}
 
 	districts.ID = uint(rand.Intn(100000))
 	districts.ProvinceID = uint(params.Args["province_id"].(int))

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"warehouse/config"
+	"warehouse/middlewares"
 	"warehouse/models"
 	"warehouse/seeders"
 	"warehouse/service"
@@ -33,6 +34,8 @@ func main() {
 		type Query struct {
 			Query string `json:"query"`
 		}
+
+		middlewares.Token = c.Request.Header.Get("Authorization")
 		var query Query
 
 		c.Bind(&query)

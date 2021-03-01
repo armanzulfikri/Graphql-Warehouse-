@@ -1,10 +1,17 @@
 package models
 
-import "gorm.io/gorm"
+import (
+	"time"
+
+	"gorm.io/gorm"
+)
 
 // Districts model
 type Districts struct {
-	gorm.Model
-	Name       string
-	ProvinceID uint
+	ID         uint   `gorm:"primarykey"`
+	Name       string `json:"name"`
+	ProvinceID uint   `json:"province_id"`
+	CreatedAt  time.Time
+	UpdatedAt  time.Time
+	DeletedAt  gorm.DeletedAt `gorm:"index"`
 }
